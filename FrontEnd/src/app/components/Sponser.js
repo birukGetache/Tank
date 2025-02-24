@@ -18,7 +18,7 @@ const SponsorManagementPage = () => {
   // Fetch all sponsors
   const fetchSponsors = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/sponser');
+      const response = await axios.get('https://tankwas-3.onrender.com/sponser');
       setSponsors(response.data);
     } catch (err) {
       console.error('Failed to fetch sponsors', err);
@@ -55,10 +55,10 @@ const SponsorManagementPage = () => {
     try {
       if (editId) {
         // Update existing sponsor
-        await axios.put(`http://localhost:5000/sponser/${editId}`, data);
+        await axios.put(`https://tankwas-3.onrender.com/sponser/${editId}`, data);
       } else {
         // Add new sponsor
-        await axios.post('http://localhost:5000/sponser', data);
+        await axios.post('https://tankwas-3.onrender.com/sponser', data);
       }
       fetchSponsors(); // Refresh sponsor list
       setFormData({
@@ -93,7 +93,7 @@ const SponsorManagementPage = () => {
   // Delete a sponsor
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/sponser/${id}`);
+      await axios.delete(`https://tankwas-3.onrender.com/sponser/${id}`);
       fetchSponsors();
     } catch (err) {
       console.error('Failed to delete sponsor', err);
@@ -179,7 +179,7 @@ const SponsorManagementPage = () => {
         {sponsors.map((sponsor) => (
           <div key={sponsor._id} className="bg-white p-4 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-2">{sponsor.name}</h3>
-            <img src={`http://localhost:5000${sponsor.logo}`} alt={sponsor.name} className="w-24 h-24 object-contain mb-2" />
+            <img src={`https://tankwas-3.onrender.com${sponsor.logo}`} alt={sponsor.name} className="w-24 h-24 object-contain mb-2" />
             <p className="text-gray-600 text-sm mb-2">{sponsor.description}</p>
             <div className="flex space-x-2">
               <button

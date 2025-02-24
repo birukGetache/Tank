@@ -14,7 +14,7 @@ const SponsorPage = () => {
   // Fetch sponsors from the backend
   const fetchSponsors = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/sponser');
+      const response = await axios.get('https://tankwas-3.onrender.com/sponser');
       setSponsors(response.data);
     } catch (error) {
       console.error('Failed to fetch sponsors:', error);
@@ -24,7 +24,7 @@ const SponsorPage = () => {
   // Delete sponsor
   const deleteSponsor = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/sponser/${id}`);
+      await axios.delete(`https://tankwas-3.onrender.com/sponser/${id}`);
       fetchSponsors();  // Refresh the list after deletion
     } catch (error) {
       console.error('Failed to delete sponsor:', error);

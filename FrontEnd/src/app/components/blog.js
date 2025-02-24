@@ -21,7 +21,7 @@ export default function Home() {
     formData.append("image", image);
   
     try {
-      const response = await axios.post("http://localhost:5000/api/blogs", formData, {
+      const response = await axios.post("https://tankwas-3.onrender.com/api/blogs", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setBlogs([...blogs, response.data]);

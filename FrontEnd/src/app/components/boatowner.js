@@ -14,7 +14,7 @@ const BoatOwner = () => {
   // Fetch boat owners data
   const fetchBoatOwners = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/boatowners");
+      const response = await axios.get("https://tankwas-3.onrender.com/boatowners");
       setBoatOwners(response.data);
     } catch (error) {
       console.error("Error fetching boat owners:", error);
@@ -39,10 +39,10 @@ const BoatOwner = () => {
     e.preventDefault();
     if (formData.id) {
       // Update existing boat owner
-      await axios.put(`http://localhost:5000/boatowners/${formData.id}`, formData);
+      await axios.put(`https://tankwas-3.onrender.com/boatowners/${formData.id}`, formData);
     } else {
       // Create new boat owner
-      await axios.post("http://localhost:5000/boatowners", formData);
+      await axios.post("https://tankwas-3.onrender.com/boatowners", formData);
     }
     setFormData({
       name: "",
@@ -56,7 +56,7 @@ const BoatOwner = () => {
 
   // Handle delete
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/boatowners/${id}`);
+    await axios.delete(`https://tankwas-3.onrender.com/boatowners/${id}`);
     fetchBoatOwners();
   };
 

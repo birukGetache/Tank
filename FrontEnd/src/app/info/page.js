@@ -10,7 +10,7 @@ const App = () => {
   const [visibleComments, setVisibleComments] = useState(2);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/blogs")
+    axios.get("https://tankwas-3.onrender.com/api/blogs")
       .then((response) => {
         if (response.data.length > 0) {
           setBlogPost({
@@ -24,7 +24,7 @@ const App = () => {
 
   const handleCommentSubmit = () => {
     if (comment.trim() && blogPost) {
-      axios.post(`http://localhost:5000/api/blogs/${blogPost._id}/comments`, { comment })
+      axios.post(`https://tankwas-3.onrender.com/api/blogs/${blogPost._id}/comments`, { comment })
         .then((response) => {
           setBlogPost(response.data);
           setComment("");
@@ -35,7 +35,7 @@ const App = () => {
 
   const handleLike = () => {
     if (blogPost) {
-      axios.post(`http://localhost:5000/api/blogs/${blogPost._id}/like`)
+      axios.post(`https://tankwas-3.onrender.com/api/blogs/${blogPost._id}/like`)
         .then((response) => setBlogPost(response.data))
         .catch((error) => console.error("Error liking the blog:", error));
     }
@@ -43,7 +43,7 @@ const App = () => {
 
   const handleFavorite = () => {
     if (blogPost) {
-      axios.post(`http://localhost:5000/api/blogs/${blogPost._id}/favorite`)
+      axios.post(`https://tankwas-3.onrender.com/api/blogs/${blogPost._id}/favorite`)
         .then((response) => setBlogPost(response.data))
         .catch((error) => console.error("Error updating favorite state:", error));
     }
@@ -51,7 +51,7 @@ const App = () => {
 
   const handlePin = () => {
     if (blogPost) {
-      axios.post(`http://localhost:5000/api/blogs/${blogPost._id}/pin`)
+      axios.post(`https://tankwas-3.onrender.com/api/blogs/${blogPost._id}/pin`)
         .then((response) => setBlogPost(response.data))
         .catch((error) => console.error("Error updating pin state:", error));
     }

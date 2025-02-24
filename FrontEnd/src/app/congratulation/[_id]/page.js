@@ -18,7 +18,7 @@ const BookingDetailsPage = () => {
     if (_id) {
       const fetchBookingDetails = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/booking/${_id}`);
+          const response = await axios.get(`https://tankwas-3.onrender.com/booking/${_id}`);
           setData(response.data);
         } catch (error) {
           console.error("Error fetching booking details:", error);
