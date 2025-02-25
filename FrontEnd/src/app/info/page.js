@@ -58,7 +58,14 @@ const App = () => {
   };
 
   if (!blogPost) {
-    return <p>Loading...</p>;
+    return <div className="flex justify-center items-center h-screen bg-gray-900">
+    <div className="relative w-20 h-20 flex justify-center items-center">
+      {/* Rotating Border */}
+      <div className="absolute w-full h-full border-4 border-transparent border-t-blue-500 border-r-blue-500 rounded-full animate-spin"></div>
+      {/* Inner Circle */}
+      <div className="w-12 h-12 bg-blue-500 rounded-full"></div>
+    </div>
+  </div>;
   }
 
   return (

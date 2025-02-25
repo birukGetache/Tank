@@ -77,10 +77,11 @@ const HomePage = () => {
   if (loading) {
     return (
       <div className="flex gap-4 bg-slate-700 flex-col justify-center items-center h-screen">
-        <div className="h-40 w-40 rounded-md">
-          <img src="/mainLog.svg" alt="" className="rounded-md" />
-        </div>
-      </div>
+      <img src="/mainLog.svg" alt="Logo" className="rounded-md h-20" />
+      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-white animate-gradient">
+        TANKWA
+      </p>
+    </div>
     );
   }
 
