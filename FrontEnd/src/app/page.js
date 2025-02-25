@@ -17,7 +17,7 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState(""); // State for search input
   const [filteredDestinations, setFilteredDestinations] = useState([]); // State for filtered destinations
   const [showAllDestinations, setShowAllDestinations] = useState(false);
-  const initialDestinationsToShow = 4; // Number of destinations to show initially
+  const initialDestinationsToShow = 8; // Number of destinations to show initially
 
   const blogs = [
     { title: "", content: "", url: "image.png" },
@@ -154,12 +154,12 @@ const HomePage = () => {
 
         <div className="mt-0 pt-0">
           <p className="text-gray-300 text-xl px-6">Destination</p>
-          <button
+          {/* <button
   className="mx-auto text-base font-poppins bg-gradient-to-r from-blue-500 to-slate-700 hover:from-blue-600 hover:to-slate-800 text-white rounded-full border-2 border-blue-500 m-4 w-fit px- py-1 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out flex items-center space-x-2 p-2"
   onClick={() => setShowAllDestinations(!showAllDestinations)}
 >
   {showAllDestinations ? "See Less" : "See More"}
-</button>
+</button> */}
 <div className="grid grid-cols-2 place-items-center gap-6 overflow-x-auto pb-4">
   {destinationsToShow.map((card) => (
    <div
