@@ -3,7 +3,7 @@
 import React, { memo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; // Use usePathname instead of useRouter
-import { FaHome, FaHandshake, FaInfoCircle, FaCog, FaUser } from "react-icons/fa";
+import { FaHome, FaHandshake, FaInfoCircle, FaCog, FaShieldAlt } from "react-icons/fa"; // Import FaShieldAlt
 
 // Memoized Icon component to prevent unnecessary re-renders
 const Icon = memo(({ icon, label }) => {
@@ -26,7 +26,7 @@ const BottomNavBar = () => {
     { path: "/home", icon: <FaHandshake />, label: "Sponser" },
     { path: "/info", icon: <FaInfoCircle />, label: "Info" },
     { path: "/settings", icon: <FaCog />, label: "Settings" },
-    { path: "/create", icon: <FaUser />, label: "Name" },
+    { path: "/create", icon: <FaShieldAlt />, label: "Security" }, // Updated icon here
   ];
 
   // Reorder tabs to make the active tab the third one
