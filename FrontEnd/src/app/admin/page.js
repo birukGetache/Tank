@@ -1,12 +1,26 @@
-"use client"
-import { useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Sidebar from "../components/Sidebar";
 import BoatOwner from "../components/boatowner"; // Assuming you have this component
 import Blog from "../components/blog"; // Assuming you have this component
 import Chart from "../components/chart"; // Assuming you have this component
-import Sponser from '../components/Sponser'
+import Sponser from "../components/Sponser";
+
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState("chart"); // Default is Chart
+  const router = useRouter();
+
+  // Check for token on component mount
+  useEffect(() => {
+    const token = localStorage.getItem("token"); // Retrieve the token from localStorage
+
+    // If no token is found, redirect to the login page
+    if (!token) {
+      router.push("/adminAuth");
+    }
+  }, [router]);
 
   const renderComponent = () => {
     switch (activeComponent) {
