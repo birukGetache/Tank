@@ -184,7 +184,7 @@ const HomePage = () => {
  
    {visibleCardId === card.id && (
      <div
-       className="bg-black overflow-hidden absolute top-0 left-0 flex justify-center items-center bg-opacity-10 h-screen w-screen"
+       className="bg-black overflow-hidden absolute top-0 left-0 flex justify-center items-center bg-opacity-50 z-40 h-screen w-screen"
        onClick={() => setVisibleCardId(null)}
      >
        <div className="flex-1 p-6 rounded-xl bg-slate-700 max-w-64 m-auto shadow-lg h-fit text-center cursor-pointer">
