@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
 import WeatherInfo from "./components/Weather";
-
+import Marquee from 'react-fast-marquee'
 const HomePage = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const users = useSelector((state) => state.counter.users);
@@ -132,13 +132,20 @@ const HomePage = () => {
         <div className="pt-3 ">
           <div className="space-y-4">
             <div className="relative overflow-hidden pb-4 max-w-full">
-              <div className="slideTrack marquee">
+              {/* <div className="slideTrack marquee">
                 {blogs.concat(blogs).map((blog, index) => (
                   <div key={index} className="slides">
                     <img src={blog.url} alt="Blog" className="w-full h-full object-cover rounded-md" />
                   </div>
                 ))}
-              </div>
+              </div> */}
+              <Marquee>
+              {blogs.map((blog, index) => (
+                  <div key={index} className="slides">
+                    <img src={blog.url} alt="Blog" className="w-full h-full object-cover rounded-md" />
+                  </div>
+                ))}
+              </Marquee>
             </div>
 
             <div className="text-center mt-2">

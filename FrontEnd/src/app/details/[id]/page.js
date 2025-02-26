@@ -73,7 +73,7 @@ const DetailPage = () => {
   const handleSubmit = async (e)  => {
     e.preventDefault();
     try {
-      const result = await axios.post("https://tankwas-3.onrender.com/PostTransaction", {
+      const result = await axios.post("http://localhost:5000/PostTransaction", {
         firstName: first_name,
         middleName: middleName,
         lastName: last_name,
