@@ -13,6 +13,7 @@ const AdminDashboard = () => {
   const router = useRouter();
 
   // Check for token on component mount
+<<<<<<< HEAD
   // useEffect(() => {
   //   const token = localStorage.getItem("token"); // Retrieve the token from localStorage
 
@@ -21,6 +22,16 @@ const AdminDashboard = () => {
   //     router.push("/adminAuth");
   //   }
   // }, [router]);
+=======
+  useEffect(() => {
+    const token = localStorage.getItem("token"); // Retrieve the token from localStorage
+
+    // If no token is found, redirect to the login page
+    if (!token) {
+      router.push("/adminAuth");
+    }
+  }, [router]);
+>>>>>>> b112eb573db9f1bf76839ffd29a670d02c804be7
 
   const renderComponent = () => {
     switch (activeComponent) {
