@@ -25,6 +25,11 @@ const Sidebar = ({ setActiveComponent }) => {
             Sponsors
           
         </li>
+        <li className="mb-3 hover:bg-gray-600 p-2 rounded block"   onClick={() => setActiveComponent("Destination")}>
+         
+            Destination
+          
+        </li>
       </ul>
     </div>
   );

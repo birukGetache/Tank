@@ -2,6 +2,8 @@
 import { useRouter } from 'next/navigation';
 import { FaTelegram, FaLinkedin, FaTwitter, FaDiscord, FaYoutube, FaInstagram } from "react-icons/fa";
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
+import React from 'react';
 const settingsDetails = {
 
   
@@ -13,9 +15,15 @@ const settingsDetails = {
 };
 
 export default function SettingDetail({ params }) {
-  const [copied, setCopied] = useState("");
+  const { t, i18n } = useTranslation();
 
-  const { id } = params; // Use params to get the id
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const [copied, setCopied] = useState("");
+  const unwrappedParams = React.use(params);
+  const { id } = unwrappedParams;
   const router = useRouter(); // Initialize the useRouter hook
 
   const setting = settingsDetails[id];
@@ -110,13 +118,14 @@ export default function SettingDetail({ params }) {
 
      {setting.title === "Language" && (
   <div className="space-y-4 p-6 bg-gray-100 rounded-md shadow-sm">
-    
+      <h1 className='text-blue-500'>{t('Setting')}</h1>
     <div className="space-y-2">
     <label className="flex items-center space-x-2">
         <input
           type="radio"
           name="language"
           value="Amharic"
+          onChange={() => changeLanguage('am')}
           className="text-slate-600 focus:ring-slate-300"
         />
         <span className="text-gray-800">Amharic</span>
@@ -126,6 +135,7 @@ export default function SettingDetail({ params }) {
           type="radio"
           name="language"
           value="English"
+          onChange={() => changeLanguage('en')}
           className="text-slate-600 focus:ring-slate-300"
         />
         <span className="text-gray-800">English</span>
@@ -136,6 +146,7 @@ export default function SettingDetail({ params }) {
           type="radio"
           name="language"
           value="Spanish"
+          onChange={() => changeLanguage('sp')}
           className="text-slate-600 focus:ring-slate-300"
         />
         <span className="text-gray-800">Spanish</span>
@@ -146,6 +157,7 @@ export default function SettingDetail({ params }) {
           type="radio"
           name="language"
           value="French"
+          onChange={() => changeLanguage('fr')}
           className="text-slate-600 focus:ring-slate-300"
         />
         <span className="text-gray-800">French</span>
@@ -156,6 +168,7 @@ export default function SettingDetail({ params }) {
           type="radio"
           name="language"
           value="Arabic"
+          onChange={() => changeLanguage('ar')}
           className="text-slate-600 focus:ring-slate-300"
         />
         <span className="text-gray-800">Arabic</span>

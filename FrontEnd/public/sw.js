@@ -3,13 +3,19 @@ this.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(cacheName).then((cache) => {
             return cache.addAll([
-                '/',                 // Base route
-                '/favicon.ico',      // Favicon
-                '/create',           // Create page
-                '/settings',         // Settings page          // Cache main chunk
-                '/_next/static/development/_buildManifest.js', // Cache build manifest
-                '/_next/static/development/_ssgManifest.js',  // Cache SSG manifest
-                '/styles/globals.css'
+                "/",                 // Base route
+                "/favicon.ico",      // Favicon
+                "/create",           // Create page
+                "/settings",         // Settings page
+                "/styles/globals.css",
+                "/mainLog.svg",
+                "/info",
+                "/paypalcomplete",
+                "/Splashing",
+                "/home",
+                "/details",
+                "/create",
+                "/congratulation"
             ]);
         })
     );

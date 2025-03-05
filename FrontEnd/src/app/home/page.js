@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaLink, FaTwitter, FaFacebook, FaInstagram, FaEdit, FaTrash } from 'react-icons/fa';
 import BottomNavBar from '../components/BottomNavBar';
-
+import { useTranslation } from "react-i18next";
 const SponsorPage = () => {
   const [sponsors, setSponsors] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -37,10 +37,12 @@ const SponsorPage = () => {
     sponsor.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-500  to-slate-500 flex flex-col items-center p-10">
       <h1 className="text-4xl sm:text-5xl font-bold text-white mb-8 text-center">
-        Our Amazing Sponsors
+      {t('sponsorsTitle')}
       </h1>
 
       {/* Search Bar */}

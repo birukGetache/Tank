@@ -19,7 +19,9 @@ const SponsorManagementPage = () => {
   const fetchSponsors = async () => {
     try {
       const response = await axios.get('https://tankwas-3.onrender.com/sponser');
+    
       setSponsors(response.data);
+      console.log(response.data)
     } catch (err) {
       console.error('Failed to fetch sponsors', err);
     }
@@ -179,7 +181,7 @@ const SponsorManagementPage = () => {
         {sponsors.map((sponsor) => (
           <div key={sponsor._id} className="bg-white p-4 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-2">{sponsor.name}</h3>
-            <img src={`https://tankwas-3.onrender.com${sponsor.logo}`} alt={sponsor.name} className="w-24 h-24 object-contain mb-2" />
+            <img src={`${sponsor.logo}`} alt={sponsor.name} className="w-24 h-24 object-contain mb-2" />
             <p className="text-gray-600 text-sm mb-2">{sponsor.description}</p>
             <div className="flex space-x-2">
               <button

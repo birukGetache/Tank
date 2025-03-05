@@ -5,8 +5,10 @@ import qrcode from "qrcode";
 import axios from "axios";
 import { FaRegWindowClose, FaDownload, FaArrowLeft, FaQrcode } from "react-icons/fa";
 import html2canvas from "html2canvas";
+import { useTranslation } from "react-i18next";
 
 const BookingDetailsPage = () => {
+  const { t, i18n } = useTranslation(); 
   const { _id } = useParams();
   const router = useRouter();
   const [data, setData] = useState(null);
@@ -71,7 +73,7 @@ const BookingDetailsPage = () => {
   <div className="flex items-center space-x-4 flex-1 justify-end">
     <button
       onClick={downloadCard}
-      className="flex items-center bg-slate-600 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-slate-800 hover:shadow-2xl transform hover:scale-105 transition w-1/2"
+      className="flex items-center bg-slate-600 text-white max-w-52 py-2 px-4 rounded-lg shadow-lg hover:bg-slate-800 hover:shadow-2xl transform hover:scale-105 transition w-1/2"
     >
       <FaDownload className="mr-2" />
       <span>Download</span>
@@ -97,7 +99,7 @@ const BookingDetailsPage = () => {
         className="bg-gradient-to-br from-white via-slate-100 to-blue-50 shadow-2xl rounded-3xl p-6 border-4 border-slate-600"
       >
         <h1 className="text-xl font-extrabold text-gray-800 mb-6 text-center border-b-4 border-slate-500 pb-3 uppercase">
-          Booking Information
+        {t("BookingInformation")}
         </h1>
         <div className="space-y-4 text-gray-700 font-medium">
           <p>

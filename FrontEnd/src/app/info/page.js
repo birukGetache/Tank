@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaRegWindowClose, FaThumbsUp, FaHeart, FaThumbtack, FaComment } from "react-icons/fa";
 import BottomNavBar from "../components/BottomNavBar";
-
+import { useTranslation } from "react-i18next";
 const App = () => {
   const [blogPost, setBlogPost] = useState(null);
   const [comment, setComment] = useState("");
   const [visibleComments, setVisibleComments] = useState(2);
-
+  const { t } = useTranslation();
   useEffect(() => {
     axios.get("https://tankwas-3.onrender.com/api/blogs")
       .then((response) => {
@@ -70,7 +70,9 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r  from-slate-500 to-slate-500 p-8">
-      <p className="text-slate-900 m-auto w-full font-bold text-3xl">Blogs</p>
+ <p className="text-slate-900 m-auto w-full font-bold text-3xl">
+        {t('blogsTitle')}
+      </p>
 
       <div className="mt-8 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
         <img className="w-full h-48 object-cover" src={blogPost.imageUrl} alt={blogPost.title} />

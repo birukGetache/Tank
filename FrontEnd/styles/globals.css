@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html ,body  {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.slideTrack {
+  display: flex;
+  width: 800%; /* Set width to double the slides, as we have 7 slides duplicated */
+  animation: marquee 20s linear infinite; /* Smooth continuous animation */
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  height: 150px;
+}
+
+.slides {
+  flex: 0 0 auto;
+  width: 300px; /* Fixed width for each slide */
+  margin-right: 16px;
+  scroll-snap-align: start;
+  height: 150px;
+}
+
+/* Keyframes for seamless infinite loop */
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* Start from the beginning */
+  }
+  100% {
+    transform: translateX(-100%); /* Move by the total width of the container */
+  }
+}
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+.mask-paypal {
+  mask: url('https://www.paypalobjects.com/webstatic/icon/pp32.png') no-repeat center;
+  -webkit-mask: url('https://www.paypalobjects.com/webstatic/icon/pp32.png') no-repeat center;
+}

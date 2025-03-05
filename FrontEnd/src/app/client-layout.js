@@ -4,14 +4,16 @@ import { useEffect } from "react";
 import swDev from "./swDev"; // Adjust path as needed
 import { Provider } from 'react-redux';
 import { store } from '../../redux/store';
-import "../../public/styles/globals.css";  // Make sure the path to the CSS is correct
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n'; // Adjust the path to your i18n.js file
 
+import "../../styles/globals.css"; 
 export default function ClientLayout({ children }) {
   useEffect(() => {
     swDev(); // Register the service worker on the client side
   }, []);
 
   return (<Provider store={store}>
-  {children}
+    <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
 </Provider>)
 }
