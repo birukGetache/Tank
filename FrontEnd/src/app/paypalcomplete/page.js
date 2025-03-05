@@ -1,5 +1,4 @@
 'use client';
-
 import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FaPaypal } from 'react-icons/fa'; // Import PayPal icon from react-icons
