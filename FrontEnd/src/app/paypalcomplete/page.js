@@ -2,8 +2,9 @@
 import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FaPaypal } from 'react-icons/fa'; // Import PayPal icon from react-icons
+import { Suspense } from 'react'; // Import Suspense
 
-export default function Home() {
+function PayPalCompleteComponent() {
   const router = useRouter();
   const searchParams = useSearchParams(); // Hook to access query parameters
 
@@ -17,13 +18,14 @@ export default function Home() {
         message: 'Payment Approved',
         tempBookingId: tempBookingId, // Include the query parameter in the request body
       });
-if(response.data.message === "Booking created successfully"){
-  alert(response.data.message )
-  setTimeout(()=>{
-    router.push(response.data.return_url); 
-  },3000)
- 
-}
+
+      if (response.data.message === "Booking created successfully") {
+        alert(response.data.message);
+        setTimeout(() => {
+          router.push(response.data.return_url);
+        }, 3000);
+      }
+
       console.log('Response:', response.data);
       alert('Request successful!');
     } catch (error) {
@@ -46,5 +48,13 @@ if(response.data.message === "Booking created successfully"){
         </button>
       </div>
     </div>
+  );
+}
+
+export default function PayPalComplete() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PayPalCompleteComponent />
+    </Suspense>
   );
 }
