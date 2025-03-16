@@ -18,7 +18,7 @@ const DetailPage = () => {
   useEffect(() => {
       const fetchDestinations = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/destinations/${id}`); // Replace with your API endpoint
+          const response = await fetch(`https://tankwas-3.onrender.com/destinations/${id}`); // Replace with your API endpoint
           const data = await response.json();
           setDestinations(data.titles[i18n.language]);
           console.log(data)
@@ -84,7 +84,7 @@ const handleSubmit = async (e) => {
 
     // If all required fields are filled, proceed with form submission
     try {
-        const response = await axios.post("http://localhost:5000/PostTransaction", formData);
+        const response = await axios.post("https://tankwas-3.onrender.com/PostTransaction", formData);
         console.log(response.data);
 
         // Corrected payment method condition
